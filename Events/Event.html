@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <!-- Over we are creating event listners  -->
+    <!-- Click, MouseOver and Copy Event-->
+
+    <!-- NOTE: Arrow functions behaves differently then regular functions when it comes to this keyword
+        thats y we are using arrow functions instead of regular functions
+    -->
+    <div id="app"></div>
+
+    <script  type="text/babel">
+        class App extends React.Component {
+            state = {
+                name: 'Aman',
+                age: 22
+            }
+            handleClick = (e) => {
+                this.setState({
+                    name: 'Aman Gupta'
+                },()=>{console.log(this.state.name)})
+                
+            }
+            handleMouseOver = (e) => {
+                console.log(e.target, e.pageX)
+            }
+            handleCopy = (e) => {
+                console.log('Try something ur original instead of copying!!')
+            }
+            render(){
+                return(
+                    <div className="app-content">
+                        <h1> Click Events</h1>
+                        <button onClick={this.handleClick}>Click Me</button> 
+                        <button onMouseOver={this.handleMouseOver}>Hover me</button> 
+                        <p onCopy={this.handleCopy}> Trident has the highest power in this world</p>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById('app'))
+    </script>
+</body>
+</html>
