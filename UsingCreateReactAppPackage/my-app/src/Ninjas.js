@@ -3,13 +3,19 @@ import React, { Component } from 'react';
 // Props are short name for properties, which allows us to pass data from parent component to child component
 class Ninjas extends Component{
     render(){
-        // Similar to unpacking in python
-        const { name, age, prof } = this.props
-        return(
-            <div className="Ninjas">
-                <p>Name : {name}</p>
-                <p>Age: { age }</p>
-                <p>Profression : { prof }</p>
+            const { ninjas } = this.props;
+            const ninjaList = ninjas.map(ninja => {   
+            return (
+                <div className="ninja" key={ninja.id}>
+                <div>Name: { ninja.name }</div>
+                <div>Age: { ninja.age }</div>
+                <div>Belt: { ninja.belt }</div>
+                </div>
+            )
+        });
+        return (
+            <div className="ninja-list">
+                { ninjaList }
             </div>
         )
     }
