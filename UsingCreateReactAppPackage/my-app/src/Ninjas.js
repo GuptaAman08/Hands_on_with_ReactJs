@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function Ninjas(){
-    return (
-        <div className='ninja'>
-            <p>Name : Aman</p>
-            <p>Age: 22</p>
-            <p>Designation: Software Engineer</p>
-        </div>
-    )
+// Props are short name for properties, which allows us to pass data from parent component to child component
+class Ninjas extends Component{
+    render(){
+        // Similar to unpacking in python
+        const { name, age, prof } = this.props
+        return(
+            <div className="Ninjas">
+                <p>Name : {name}</p>
+                <p>Age: { age }</p>
+                <p>Profression : { prof }</p>
+            </div>
+        )
+    }
 }
-
 export default Ninjas
