@@ -1,17 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-// Props are short name for properties, which allows us to pass data from parent component to child component
-class Ninjas extends Component{
-    render(){
-        // Similar to unpacking in python
-        const { name, age, prof } = this.props
+// Using a functional or UI component instead of a container component since we are concerned with UI state
+const Ninjas = (props) => {
+    const { ninjas } = props
+    const NinjaList = ninjas.map(ninja => {
         return(
-            <div className="Ninjas">
-                <p>Name : {name}</p>
-                <p>Age: { age }</p>
-                <p>Profression : { prof }</p>
-            </div>
+            <div className="Ninjas" key={ninja.id}>
+                <p>Name : { ninja.name }</p>
+                <p>Age: { ninja.age }</p>
+                <p>Profression : { ninja.prof }</p>
+            </div>    
         )
-    }
+    })
+    return(
+        <div className="NinjaList">
+            { NinjaList }
+        </div>
+    )
+    
 }
 export default Ninjas
